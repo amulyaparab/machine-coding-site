@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<BookShelf />} />
         <Route path="/search" element={<Search />} />
+        <Route path="*" element={<h1>Page Not Found.</h1>} />
       </Routes>
     </div>
   );

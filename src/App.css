@@ -108,8 +108,10 @@ button {
 .icon {
   position: absolute;
   right: 14%;
-  top: 10px;
+  top: 8px;
   color: black;
+  font-size: large;
+  font-weight: 700;
 }
 .active {
   background-color: #282c34;

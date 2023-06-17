@@ -11,6 +11,7 @@ const BooksContext = createContext();
 
 export const BooksProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
   const reducer = (state, action) => {
     switch (action.type) {
       case "INITIAL_BOOKS":
@@ -66,6 +67,7 @@ export const BooksProvider = ({ children }) => {
       dispatch({ type: "INITIAL_BOOKS", payload: books });
     } catch (err) {
       console.log(err);
+      setIsError(true);
     } finally {
       setLoading(false);
     }
@@ -84,7 +86,7 @@ export const BooksProvider = ({ children }) => {
   }, []);
   return (
     <BooksContext.Provider
-      value={{ state, selectedControl, dispatch, loading }}
+      value={{ state, selectedControl, dispatch, loading, isError }}
     >
       {children}
     </BooksContext.Provider>

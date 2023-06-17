@@ -5,7 +5,6 @@ export const Navbar = () => {
   return (
     <nav className="navbar">
       <h1 onClick={() => navigate("/")}>Book Shelf</h1>
-
       <h1 onClick={() => navigate("/search")}>Search</h1>
     </nav>
   );
