@@ -1,11 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { DisplayBook } from "../Components/DisplayBooks";
 import { useBooks } from "../Contexts/BooksProvider";
 
 export const Search = () => {
   const { dispatch, state } = useBooks();
+  const navigate = useNavigate();
   return (
     <>
+      <i class="fa-solid fa-arrow-left arrow" onClick={() => navigate("/")}></i>
       <h1 className="heading">Search</h1>
+
       <div className="search">
         <input
           className="searchbar"
@@ -14,10 +18,13 @@ export const Search = () => {
           }
         />
         <i class="fa-solid fa-magnifying-glass icon"></i>
-        {state?.searchedBooks?.map((book) => (
-          <DisplayBook {...book} />
-        ))}
+        <div className="books-category search-books">
+          {state?.searchedBooks?.map((book) => (
+            <DisplayBook {...book} key={book?.id} />
+          ))}
+        </div>
       </div>
+      {state?.noBooks && <h1>No Books Found.</h1>}
     </>
   );
 };

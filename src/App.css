@@ -48,9 +48,6 @@
 .books img {
   width: 200px;
   height: 300px;
-  /* display: flex;
-  justify-content: space-evenly;
-  align-items: center; */
 }
 hr {
   margin: 3rem 0;
@@ -77,12 +74,17 @@ hr {
   padding: 1rem;
   border-radius: 10px;
 }
+.options-block {
+  width: 200px;
+  margin: auto;
+  margin-top: 1rem;
+}
 .options-block .options {
   cursor: pointer;
   font-size: 18px;
   padding: 0.5rem;
 }
-.options-block .options:hover {
+.options:hover {
   background-color: #282c34;
   border-radius: 10px;
   color: #ffffff;
@@ -108,4 +110,27 @@ button {
   right: 14%;
   top: 10px;
   color: black;
+}
+.active {
+  background-color: #282c34;
+  border-radius: 10px;
+  color: #ffffff;
+}
+.arrow {
+  font-size: 40px;
+  position: absolute;
+  left: 50px;
+  top: 15%;
+  cursor: pointer;
+}
+.search-books {
+  flex-wrap: wrap;
+}
+.search-books button {
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 900px) {
+  .books-category {
+    flex-wrap: wrap;
+  }
 }

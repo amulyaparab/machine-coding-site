@@ -20,8 +20,14 @@ export const BooksProvider = ({ children }) => {
           ...state,
           books: state.books.map((book) => {
             if (book.id === action.bookpayload.id) {
-              console.log(book, "dfdshfjkh");
               return { ...book, defaultControl: action.controlPayload };
+            } else {
+              return book;
+            }
+          }),
+          searchedBooks: state?.searchedBooks?.map((book) => {
+            if (book?.id === action.bookpayload?.id) {
+              return { ...book, defaultControl: action?.controlPayload };
             } else {
               return book;
             }
@@ -32,13 +38,14 @@ export const BooksProvider = ({ children }) => {
         const filterBooksByCategories = state.books.filter(
           (book) =>
             book.title.toLowerCase().includes(inputByUser) ||
-            book.author.toLowerCase().includes(inputByUser) ||
-            book.defaultControl.toLowerCase().includes(inputByUser)
+            book.author.toLowerCase().includes(inputByUser)
         );
         return {
           ...state,
           searchedBooks:
             action.payload.length === 0 ? null : filterBooksByCategories,
+          noBooks:
+            action.payload.length !== 0 && filterBooksByCategories.length === 0,
         };
       default:
         return state;
@@ -47,6 +54,7 @@ export const BooksProvider = ({ children }) => {
   const initialState = {
     books: [],
     searchedBooks: [],
+    noBooks: false,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -69,8 +77,8 @@ export const BooksProvider = ({ children }) => {
       bookpayload: findExactBook,
       controlPayload: control,
     });
-    console.log(control, findExactBook);
   };
+
   useEffect(() => {
     fetchAllBooks();
   }, []);

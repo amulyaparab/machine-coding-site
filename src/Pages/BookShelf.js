@@ -9,6 +9,7 @@ export const BookShelf = () => {
     );
     return filteredByControl;
   };
+
   return (
     <>
       {loading ? (
@@ -16,23 +17,33 @@ export const BookShelf = () => {
       ) : (
         <div>
           <h1 className="heading">Currently Reading</h1>
+          {filterBooks("Currently Reading").length === 0 && (
+            <h2>No Books Here. Please Add Some.</h2>
+          )}
           <div className="books-category">
             {filterBooks("Currently Reading")?.map((book) => (
-              <DisplayBook {...book} />
+              <DisplayBook {...book} key={book?.id} />
             ))}
           </div>
+
           <hr />
           <h1 className="heading">Want To Read</h1>
+          {filterBooks("Want to read").length === 0 && (
+            <h2>No Books Here. Please Add Some.</h2>
+          )}
           <div className="books-category">
             {filterBooks("Want to read")?.map((book) => (
-              <DisplayBook {...book} />
+              <DisplayBook {...book} key={book?.id} />
             ))}
           </div>
           <hr />
           <h1 className="heading">Read</h1>
+          {filterBooks("Read").length === 0 && (
+            <h2>No Books Here. Please Add Some.</h2>
+          )}
           <div className="books-category">
             {filterBooks("Read")?.map((book) => (
-              <DisplayBook {...book} />
+              <DisplayBook {...book} key={book?.id} />
             ))}
           </div>
         </div>

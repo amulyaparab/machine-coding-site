@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useBooks } from "../Contexts/BooksProvider";
 
-export const DisplayBook = ({ title, author, image, id }) => {
+export const DisplayBook = ({ title, author, image, id, defaultControl }) => {
   const [showOptions, setShowOptions] = useState(false);
   const { selectedControl } = useBooks();
+  const isItemPresent = (option) => {
+    const isItemPresent = defaultControl === option;
+    return isItemPresent;
+  };
   return (
     <div className="books">
       <div>
@@ -17,8 +21,13 @@ export const DisplayBook = ({ title, author, image, id }) => {
             {["Currently Reading", "Want to read", "Read", "None"].map(
               (option) => (
                 <p
-                  className="options"
-                  onClick={() => selectedControl(option, id)}
+                  className={`options ${
+                    isItemPresent(option) ? "active" : ""
+                  } `}
+                  onClick={() => {
+                    selectedControl(option, id);
+                    setShowOptions(false);
+                  }}
                 >
                   {option}
                 </p>
