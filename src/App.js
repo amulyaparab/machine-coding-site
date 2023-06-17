@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { Navbar } from "./Components/Navbar";
 import { BookShelf } from "./Pages/BookShelf";
 import { Search } from "./Pages/Search";
+import { Footer } from "./Components/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="*" element={<h1>Page Not Found.</h1>} />
       </Routes>
+      <Footer />
     </div>
   );
 }

@@ -136,3 +136,8 @@ button {
     flex-wrap: wrap;
   }
 }
+.footer {
+  border-top: 2px #ffffff solid;
+  height: 100px;
+  margin-top: 2rem;
+}
