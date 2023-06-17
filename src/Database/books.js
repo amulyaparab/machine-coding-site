@@ -16,7 +16,7 @@ export const fakeFetch = (url) => {
                 image:
                   "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41j-s9fHJcL.jpg",
                 price: 9.99,
-                defaultControl: "currentlyReading",
+                defaultControl: "Currently Reading",
               },
               {
                 id: 2,
@@ -37,7 +37,7 @@ export const fakeFetch = (url) => {
                 image:
                   "https://upload.wikimedia.org/wikipedia/commons/8/89/The_Catcher_in_the_Rye_%281951%2C_first_edition_cover%29.jpg",
                 price: 10.99,
-                defaultControl: "currentlyReading",
+                defaultControl: "Currently Reading",
               },
               {
                 id: 4,
@@ -47,7 +47,7 @@ export const fakeFetch = (url) => {
                 year: 1925,
                 image: "https://m.media-amazon.com/images/I/71FTb9X6wsL.jpg",
                 price: 7.99,
-                defaultControl: "read",
+                defaultControl: "Read",
               },
               {
                 id: 5,
@@ -68,7 +68,7 @@ export const fakeFetch = (url) => {
                 year: 1813,
                 image: "https://m.media-amazon.com/images/I/71Q1tPupKjL.jpg",
                 price: 6.99,
-                defaultControl: "read",
+                defaultControl: "Read",
               },
               {
                 id: 7,
@@ -79,7 +79,7 @@ export const fakeFetch = (url) => {
                 image:
                   "https://m.media-amazon.com/images/I/710+HcoP38L._AC_UF1000,1000_QL80_.jpg",
                 price: 11.99,
-                defaultControl: "currentlyReading",
+                defaultControl: "Currently Reading",
               },
               {
                 id: 8,
@@ -101,7 +101,7 @@ export const fakeFetch = (url) => {
                 image:
                   "https://m.media-amazon.com/images/I/71jLBXtWJWL._AC_UF1000,1000_QL80_.jpg",
                 price: 14.99,
-                defaultControl: "read",
+                defaultControl: "Read",
               },
             ],
             user: {

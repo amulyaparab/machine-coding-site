@@ -40,7 +40,7 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem 4rem;
-  box-shadow: 0 0 10px 10px #ededed;
+  box-shadow: 0 0 10px 3px #ededed;
 }
 .navbar h1 {
   cursor: pointer;
@@ -52,21 +52,60 @@
   justify-content: space-evenly;
   align-items: center; */
 }
+hr {
+  margin: 3rem 0;
+}
+.heading {
+  padding: 1rem 0 2rem;
+}
 .books-category {
   display: flex;
   justify-content: space-evenly;
   margin: auto;
 }
 .options-block {
-  background-color: black;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: black;
   padding: 0.5rem;
   margin-top: 1rem;
   border-radius: 10px;
 }
+.move-to {
+  color: #ffffff;
+  background-color: #666666;
+  margin: 0;
+  padding: 1rem;
+  border-radius: 10px;
+}
 .options-block .options {
   cursor: pointer;
+  font-size: 18px;
+  padding: 0.5rem;
 }
 .options-block .options:hover {
-  color: aquamarine;
+  background-color: #282c34;
+  border-radius: 10px;
+  color: #ffffff;
+}
+button {
+  padding: 0.5rem 1.5rem;
+  background-color: #282c34;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.search {
+  position: relative;
+}
+.searchbar {
+  padding: 0.5rem 2rem;
+  width: 70%;
+  margin-bottom: 2rem;
+}
+.icon {
+  position: absolute;
+  right: 14%;
+  top: 10px;
+  color: black;
 }

@@ -1,8 +1,16 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import { fakeFetch } from "../Database/books";
 
 const BooksContext = createContext();
+
 export const BooksProvider = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const reducer = (state, action) => {
     switch (action.type) {
       case "INITIAL_BOOKS":
@@ -19,12 +27,26 @@ export const BooksProvider = ({ children }) => {
             }
           }),
         };
+      case "SEARCHED_BOOKS":
+        const inputByUser = action.payload.toLowerCase().trim();
+        const filterBooksByCategories = state.books.filter(
+          (book) =>
+            book.title.toLowerCase().includes(inputByUser) ||
+            book.author.toLowerCase().includes(inputByUser) ||
+            book.defaultControl.toLowerCase().includes(inputByUser)
+        );
+        return {
+          ...state,
+          searchedBooks:
+            action.payload.length === 0 ? null : filterBooksByCategories,
+        };
       default:
         return state;
     }
   };
   const initialState = {
     books: [],
+    searchedBooks: [],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -36,6 +58,8 @@ export const BooksProvider = ({ children }) => {
       dispatch({ type: "INITIAL_BOOKS", payload: books });
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
   const selectedControl = (control, id) => {
@@ -51,7 +75,9 @@ export const BooksProvider = ({ children }) => {
     fetchAllBooks();
   }, []);
   return (
-    <BooksContext.Provider value={{ state, selectedControl }}>
+    <BooksContext.Provider
+      value={{ state, selectedControl, dispatch, loading }}
+    >
       {children}
     </BooksContext.Provider>
   );

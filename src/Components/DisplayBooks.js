@@ -13,8 +13,8 @@ export const DisplayBook = ({ title, author, image, id }) => {
         <button onClick={() => setShowOptions(!showOptions)}>Expand</button>
         {showOptions && (
           <div className="options-block">
-            <p>Move to...</p>
-            {["currentlyReading", "Want to read", "read", "None"].map(
+            <p className="move-to">Move to...</p>
+            {["Currently Reading", "Want to read", "Read", "None"].map(
               (option) => (
                 <p
                   className="options"
