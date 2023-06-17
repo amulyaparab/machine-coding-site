@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  box-shadow: 0 0 10px 10px #ededed;
+}
+.navbar h1 {
+  cursor: pointer;
+}
+.books img {
+  width: 200px;
+  height: 300px;
+  /* display: flex;
+  justify-content: space-evenly;
+  align-items: center; */
+}
+.books-category {
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+}
+.options-block {
+  background-color: black;
+  color: #ffffff;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+.options-block .options {
+  cursor: pointer;
+}
+.options-block .options:hover {
+  color: aquamarine;
+}
